@@ -1,0 +1,18 @@
+# Render Blueprint — deploys this folder as a free Static Site.
+# Docs: https://render.com/docs/blueprint-spec
+services:
+  - type: web
+    name: app-site
+    runtime: static
+    # The whole repo root is the site; nothing to build for plain HTML.
+    buildCommand: ""
+    staticPublishPath: .
+    # Let the browser download .apk files instead of trying to render them.
+    headers:
+      - path: /downloads/*
+        name: Content-Disposition
+        value: attachment
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
