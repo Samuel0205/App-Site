@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My App — Download</title>
+  <meta name="description" content="Download My App directly. No Google Play required." />
+
+  <!-- Social share preview -->
+  <meta property="og:title" content="My App — Download" />
+  <meta property="og:description" content="Download My App directly. No Google Play required." />
+  <meta property="og:type" content="website" />
+
+  <link rel="icon" href="assets/icon.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <img class="app-icon" src="assets/icon.png" alt="My App icon" onerror="this.style.display='none'" />
+    <h1>My App</h1>
+    <p class="tagline">A short, punchy description of what your app does.</p>
+
+    <!--
+      DOWNLOAD BUTTON
+      Put your APK file in the /downloads folder, then update the href
+      and the version/size text below to match.
+    -->
+    <a class="download-btn" href="downloads/myapp.apk" download>
+      ⬇ Download for Android
+    </a>
+    <p class="meta">Version 1.0.0 · ~0 MB · Android 7.0+</p>
+  </header>
+
+  <main>
+    <section class="install">
+      <h2>How to install</h2>
+      <ol>
+        <li>Tap <strong>Download for Android</strong> above.</li>
+        <li>When the download finishes, open the <strong>.apk</strong> file.</li>
+        <li>If prompted, allow <strong>“Install unknown apps”</strong> for your browser
+            (Settings → Apps → your browser → Install unknown apps).</li>
+        <li>Tap <strong>Install</strong>, then <strong>Open</strong>. Done!</li>
+      </ol>
+      <p class="note">
+        Your phone may warn you because the app isn’t from the Play Store — that’s
+        normal for direct downloads. Only install apps you trust.
+      </p>
+    </section>
+
+    <section class="features">
+      <h2>Features</h2>
+      <ul>
+        <li>✨ Feature one</li>
+        <li>⚡ Feature two</li>
+        <li>🔒 Feature three</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> My App. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
