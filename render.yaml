@@ -2,16 +2,10 @@
 # Docs: https://render.com/docs/blueprint-spec
 services:
   - type: web
-    name: app-site
+    name: truckloyal-site
     runtime: static
-    # The whole repo root is the site; nothing to build for plain HTML.
-    buildCommand: ""
+    buildCommand: ""        # nothing to build — it's a single static HTML page
     staticPublishPath: .
-    # Let the browser download .apk files instead of trying to render them.
-    headers:
-      - path: /downloads/*
-        name: Content-Disposition
-        value: attachment
     routes:
       - type: rewrite
         source: /*
