@@ -110,8 +110,16 @@
   .foot-links a { color: #f0d9c4; text-decoration: none; font-weight: 800; font-size: 15px; }
   .foot-links a:hover { color: #fff; }
   .foot-copy { max-width: 1080px; margin: 30px auto 0; font-size: 13px; color: #c9a98e; font-weight: 700; border-top: 1px solid rgba(255,255,255,0.12); padding-top: 20px; }
+  /* Get the App section */
+  #get-app { background: var(--cream); }
+  .getapp-cta { text-align: center; margin-bottom: 44px; }
+  .getapp-btn { font-size: 18px; padding: 18px 46px; }
+  .install-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; max-width: 780px; margin: 0 auto; }
+  .install-card h3 .platform-ico { width: 26px; height: 26px; flex: none; }
+  .install-card h3 .platform-ico svg { width: 100%; height: 100%; display: block; }
+  .getapp-note { text-align: center; max-width: 640px; margin: 30px auto 0; color: var(--muted); font-size: 15px; font-weight: 700; }
   @media (max-width: 800px) {
-    .hero-grid, .cust-grid { grid-template-columns: 1fr; }
+    .hero-grid, .cust-grid, .install-grid { grid-template-columns: 1fr; }
     .hero-grid .phone-wrap { order: -1; }
     .steps, .grid { grid-template-columns: 1fr; }
     .nav-links .lnk { display: none; }
@@ -129,6 +137,7 @@
       <a class="lnk" href="#features">Features</a>
       <a class="lnk" href="#pricing">Pricing</a>
       <a class="lnk" href="#customer">For fans</a>
+      <a class="lnk" href="#get-app">Get the App</a>
       <a class="btn btn-primary nav-cta" href="https://truckloyal-api.onrender.com/app">Open App</a>
     </div>
   </div>
@@ -238,39 +247,55 @@
 </section>
 
 <section id="customer">
-  <div class="inner cust-grid">
-    <div class="cust-intro">
-      <span class="track-label customer">🌮 For food truck fans</span>
-      <h2>Earn free food at the trucks you already love</h2>
-      <p>TruckLoyal is completely free for customers. Add it to your home screen in a few taps — no app store required.</p>
-      <ul class="cust-perks">
-        <li>Digital rewards card with your own QR code</li>
-        <li>Earn points every single visit</li>
-        <li>Redeem rewards right at the truck</li>
-        <li>Discover nearby food trucks</li>
-        <li>Track your visit history and streaks</li>
-      </ul>
-      <a class="btn btn-gold" href="https://truckloyal-api.onrender.com/app">Get the App</a>
+  <div class="inner" style="max-width:680px; text-align:center;">
+    <span class="track-label customer">🌮 For food truck fans</span>
+    <h2 style="font-size:clamp(26px,3.5vw,34px); margin-bottom:14px;">Earn free food at the trucks you already love</h2>
+    <p style="color:var(--muted); font-size:16px; font-weight:700; margin-bottom:22px;">TruckLoyal is completely free for customers. Add it to your home screen in a few taps — no app store required.</p>
+    <ul class="cust-perks" style="display:inline-block; text-align:left;">
+      <li>Digital rewards card with your own QR code</li>
+      <li>Earn points every single visit</li>
+      <li>Redeem rewards right at the truck</li>
+      <li>Discover nearby food trucks</li>
+      <li>Track your visit history and streaks</li>
+    </ul>
+  </div>
+</section>
+
+<section id="get-app">
+  <div class="inner">
+    <div class="head">
+      <div class="kicker">Get started</div>
+      <h2>Get the App</h2>
+      <p>Install TruckLoyal in seconds — straight from your phone's browser.</p>
     </div>
-    <div>
-      <div class="install-card android" style="margin-bottom:18px;">
-        <h3>🤖 On Android</h3>
+    <div class="install-grid">
+      <div class="install-card android">
+        <h3>
+          <span class="platform-ico" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#3DDC84" d="M17.6 9.48l1.84-3.18a.4.4 0 00-.69-.4l-1.86 3.23a11.46 11.46 0 00-9.78 0L5.25 5.9a.4.4 0 10-.69.4L6.4 9.48A10.78 10.78 0 001 18h22a10.78 10.78 0 00-5.4-8.52zM7 15.25a1 1 0 110-2 1 1 0 010 2zm10 0a1 1 0 110-2 1 1 0 010 2z"/></svg></span>
+          Android
+        </h3>
         <ol>
-          <li>Open the app link in <b>Chrome</b></li>
-          <li>Tap the "Add to Home Screen" banner (or ⋮ menu → Add to Home Screen)</li>
-          <li>Done — it opens like a native app</li>
+          <li>Tap <b>"Get the App"</b> below</li>
+          <li>Chrome shows an <b>"Add to Home Screen"</b> banner automatically</li>
+          <li>Tap it — the icon appears on your home screen</li>
         </ol>
       </div>
       <div class="install-card ios">
-        <h3>🍎 On iPhone</h3>
+        <h3>
+          <span class="platform-ico" aria-hidden="true"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#2D1B0E" d="M16.36 12.78c-.02-2.1 1.72-3.11 1.8-3.16-.98-1.44-2.5-1.63-3.04-1.66-1.3-.13-2.53.76-3.19.76-.65 0-1.67-.74-2.74-.72-1.41.02-2.71.82-3.43 2.08-1.46 2.54-.37 6.3 1.05 8.36.69 1.01 1.52 2.14 2.6 2.1 1.04-.04 1.44-.67 2.7-.67 1.26 0 1.61.67 2.71.65 1.12-.02 1.83-1.03 2.52-2.04.79-1.17 1.12-2.3 1.13-2.36-.02-.01-2.17-.83-2.19-3.29zM14.3 6.6c.58-.7.97-1.67.86-2.64-.83.03-1.84.55-2.44 1.25-.53.62-1 1.61-.88 2.56.93.07 1.88-.47 2.46-1.17z"/></svg></span>
+          iPhone
+        </h3>
         <ol>
-          <li>Open the app link in <b>Safari</b> (not Chrome)</li>
-          <li>Tap the Share button (box with an arrow)</li>
-          <li>Tap "Add to Home Screen" → Add</li>
+          <li>Tap <b>"Get the App"</b> below</li>
+          <li>Tap the <b>Share</b> button in Safari (box with an arrow)</li>
+          <li>Tap <b>"Add to Home Screen"</b>, then <b>Add</b></li>
         </ol>
       </div>
-      <p style="margin-top:14px; font-size:13px; color:var(--muted); font-weight:700;">📱 Native Android app pending Google Play approval · iOS App Store coming soon.</p>
     </div>
+    <div class="getapp-cta" style="margin-top:40px; margin-bottom:0;">
+      <a class="btn btn-primary getapp-btn" href="https://truckloyal-api.onrender.com/app" target="_blank" rel="noopener">Get the App</a>
+    </div>
+    <p class="getapp-note">No app store needed — installs directly from your browser in seconds. Works on all Android and iPhone devices.</p>
   </div>
 </section>
 
