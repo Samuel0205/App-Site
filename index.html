@@ -118,6 +118,11 @@
   .install-card h3 .platform-ico { width: 26px; height: 26px; flex: none; }
   .install-card h3 .platform-ico svg { width: 100%; height: 100%; display: block; }
   .getapp-note { text-align: center; max-width: 640px; margin: 30px auto 0; color: var(--muted); font-size: 15px; font-weight: 700; }
+  /* See it in action (demo) */
+  #demo { background: var(--cream); }
+  .demo-wrap { display: flex; justify-content: center; }
+  .demo-gif { width: 288px; max-width: 78%; height: auto; border-radius: 22px; filter: drop-shadow(0 26px 54px rgba(45,27,14,0.28)); }
+  .demo-note { text-align: center; color: var(--muted); font-size: 13px; font-weight: 700; margin-top: 20px; }
   @media (max-width: 800px) {
     .hero-grid, .cust-grid, .install-grid { grid-template-columns: 1fr; }
     .hero-grid .phone-wrap { order: -1; }
@@ -216,6 +221,21 @@
       <div class="feat"><div class="ico">🎟️</div><h3>Promo codes</h3><p>Run promotions and reward new sign-ups with custom codes.</p></div>
       <div class="feat"><div class="ico">💳</div><h3>Billing built in</h3><p>Secure Stripe billing is handled inside the app — nothing extra to set up.</p></div>
     </div>
+  </div>
+</section>
+
+<section id="demo">
+  <div class="inner">
+    <div class="head">
+      <div class="kicker">See it in action</div>
+      <h2>Earn points, unlock free food</h2>
+      <p>Customers scan at the window, watch their points climb, and redeem rewards — all from their phone.</p>
+    </div>
+    <div class="demo-wrap">
+      <img class="demo-gif" src="assets/demo.gif" width="288" height="594" loading="lazy"
+           alt="Animated demo of the TruckLoyal app: scanning at the window, earning points, and unlocking a free taco reward.">
+    </div>
+    <p class="demo-note">Illustrative demo of the customer experience.</p>
   </div>
 </section>
 
