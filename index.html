@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TruckLoyal — Add a Loyalty Program to Your Food Truck in Minutes</title>
-<meta name="description" content="TruckLoyal gives food truck owners a full loyalty rewards program — points, spin wheel, analytics, push notifications — for $9.99/month. 14-day free trial.">
+<title>Food Truck Rewards — Add a Loyalty Program to Your Food Truck in Minutes</title>
+<meta name="description" content="Food Truck Rewards gives food truck owners a full loyalty rewards program — points, spin wheel, analytics, push notifications — for $9.99/month. 14-day free trial.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
 <style>
@@ -48,7 +48,39 @@
   .hero-note { font-size: 14px; color: var(--muted); font-weight: 700; margin-top: 16px; }
   .hero-note b { color: var(--dark); }
   .phone { margin: 0 auto; width: 260px; background: var(--dark); border-radius: 36px; padding: 12px; box-shadow: 0 30px 60px rgba(45,27,14,0.28); }
-  .phone-screen { background: #FFF3EA; border-radius: 26px; overflow: hidden; padding-bottom: 14px; }
+  .phone-screen { background: #FFF3EA; border-radius: 26px; overflow: hidden; }
+  /* two-up flip between customer + vendor views */
+  .ph-flip { position: relative; height: 486px; }
+  .ph-face { position: absolute; inset: 0; display: flex; flex-direction: column; padding-bottom: 14px; }
+  .ph-body { flex: 1; }
+  .ph-body.center { display: flex; flex-direction: column; justify-content: center; }
+  .face-customer { animation: flipA 9s ease-in-out infinite; }
+  .face-vendor   { animation: flipB 9s ease-in-out infinite; }
+  @keyframes flipA { 0%,42%{opacity:1} 50%,92%{opacity:0} 100%{opacity:1} }
+  @keyframes flipB { 0%,42%{opacity:0} 50%,92%{opacity:1} 100%{opacity:0} }
+  @media (prefers-reduced-motion: reduce) {
+    .face-customer, .face-vendor { animation: none; }
+    .face-vendor { opacity: 0; }
+  }
+  /* vendor dashboard view */
+  .pv-hero { background: linear-gradient(135deg, #FF5722, #ff7d4d); color: #fff; padding: 12px 14px 14px; }
+  .pv-lbl { font-size: 8.5px; font-weight: 900; letter-spacing: .12em; opacity: .85; }
+  .pv-name { font-size: 18px; font-weight: 900; line-height: 1.1; margin-top: 1px; }
+  .pv-live { display: inline-flex; align-items: center; gap: 5px; background: rgba(255,255,255,.22); border-radius: 999px; padding: 4px 10px; font-size: 9px; font-weight: 800; margin-top: 9px; }
+  .pv-live .dot { width: 6px; height: 6px; border-radius: 50%; background: #fff; }
+  .pv-stats { display: flex; gap: 6px; padding: 9px 12px 0; }
+  .pv-stat { flex: 1; background: #fff; border-radius: 11px; padding: 9px 4px; text-align: center; box-shadow: 0 6px 14px rgba(45,27,14,.07); }
+  .pv-stat .v { font-size: 18px; font-weight: 900; line-height: 1; }
+  .pv-stat .l { font-size: 7.5px; font-weight: 800; color: var(--muted); margin-top: 3px; }
+  .pv-window { margin: 9px 12px 0; background: #eaf7ec; border: 1px solid #cdeccf; border-radius: 11px; padding: 9px 11px; display: flex; align-items: center; gap: 8px; }
+  .pv-window .ico { font-size: 17px; }
+  .pv-window .t1 { font-size: 11px; font-weight: 900; color: #1f8f3a; }
+  .pv-window .t2 { font-size: 8.5px; font-weight: 700; color: var(--muted); line-height: 1.25; }
+  .pv-tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; padding: 9px 12px 0; }
+  .pv-tile { background: #fff; border-radius: 11px; padding: 10px; box-shadow: 0 6px 14px rgba(45,27,14,.07); }
+  .pv-tile .e { font-size: 17px; }
+  .pv-tile .t { font-size: 10.5px; font-weight: 900; color: var(--dark); margin-top: 4px; }
+  .pv-tile .s { font-size: 8px; font-weight: 700; color: var(--muted); margin-top: 1px; }
   .ph-bar { background: #fff; display: flex; align-items: center; justify-content: space-between; padding: 12px 14px; }
   .ph-brand { color: var(--orange); font-weight: 900; font-size: 11.5px; letter-spacing: .01em; }
   .ph-menu { display: flex; flex-direction: column; gap: 3px; width: 16px; }
@@ -151,7 +183,7 @@
 
 <header>
   <div class="nav-inner">
-    <a class="logo" href="#hero"><span class="truck">🚚</span> TruckLoyal</a>
+    <a class="logo" href="#hero"><span class="truck">🚚</span> Food Truck Rewards</a>
     <div class="nav-links">
       <a class="lnk" href="#how">How it works</a>
       <a class="lnk" href="#features">Features</a>
@@ -178,35 +210,74 @@
     <div class="phone-wrap">
       <div class="phone">
         <div class="phone-screen">
-          <div class="ph-bar">
-            <span class="ph-brand">FOOD TRUCK REWARDS</span>
-            <span class="ph-menu"><i></i><i></i><i></i></span>
-          </div>
-          <div class="ph-head">
-            <div class="ph-tag">Rewards that hit different</div>
-            <div class="ph-name">Flavor on Wheels 🥩</div>
-          </div>
-          <div class="ph-card ph-stats">
-            <div class="b1"><div class="sv" style="color:var(--orange)">1066</div><div class="sl">POINTS HERE</div></div>
-            <div class="b1"><div class="sv" style="color:var(--dark)">6</div><div class="sl">VISITS</div></div>
-            <div><div class="sv" style="color:#1f8f3a">$35</div><div class="sl">SAVED</div></div>
-          </div>
-          <div class="ph-card">
-            <div class="ph-tierrow">
-              <div>
-                <div class="ph-tierlbl">YOUR TIER AT THIS TRUCK</div>
-                <div class="ph-tier">⭐ VIP</div>
+          <div class="ph-flip">
+
+            <!-- Customer view -->
+            <div class="ph-face face-customer">
+              <div class="ph-bar">
+                <span class="ph-brand">FOOD TRUCK REWARDS</span>
+                <span class="ph-menu"><i></i><i></i><i></i></span>
               </div>
-              <div class="ph-next">Next 👑 Legend<br>434 pts away</div>
+              <div class="ph-body center">
+                <div class="ph-head">
+                  <div class="ph-tag">Rewards that hit different</div>
+                  <div class="ph-name">Flavor on Wheels 🥩</div>
+                </div>
+                <div class="ph-card ph-stats">
+                  <div class="b1"><div class="sv" style="color:var(--orange)">1066</div><div class="sl">POINTS HERE</div></div>
+                  <div class="b1"><div class="sv" style="color:var(--dark)">6</div><div class="sl">VISITS</div></div>
+                  <div><div class="sv" style="color:#1f8f3a">$35</div><div class="sl">SAVED</div></div>
+                </div>
+                <div class="ph-card">
+                  <div class="ph-tierrow">
+                    <div>
+                      <div class="ph-tierlbl">YOUR TIER AT THIS TRUCK</div>
+                      <div class="ph-tier">⭐ VIP</div>
+                    </div>
+                    <div class="ph-next">Next 👑 Legend<br>434 pts away</div>
+                  </div>
+                  <div class="ph-pbar"><i></i></div>
+                </div>
+                <div class="ph-card">
+                  <div class="ph-streakhead"><span class="s1">🔥 Visit Streak</span><span class="s2">1 day</span></div>
+                  <div class="ph-days">
+                    <div class="ph-day">M</div><div class="ph-day on">T</div><div class="ph-day">W</div>
+                    <div class="ph-day">T</div><div class="ph-day">F</div><div class="ph-day">S</div><div class="ph-day">S</div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="ph-pbar"><i></i></div>
-          </div>
-          <div class="ph-card">
-            <div class="ph-streakhead"><span class="s1">🔥 Visit Streak</span><span class="s2">1 day</span></div>
-            <div class="ph-days">
-              <div class="ph-day">M</div><div class="ph-day on">T</div><div class="ph-day">W</div>
-              <div class="ph-day">T</div><div class="ph-day">F</div><div class="ph-day">S</div><div class="ph-day">S</div>
+
+            <!-- Vendor dashboard view -->
+            <div class="ph-face face-vendor">
+              <div class="ph-bar">
+                <span class="ph-brand">FOOD TRUCK REWARDS</span>
+                <span class="ph-menu"><i></i><i></i><i></i></span>
+              </div>
+              <div class="ph-body">
+                <div class="pv-hero">
+                  <div class="pv-lbl">DASHBOARD</div>
+                  <div class="pv-name">Flavor on Wheels 🥩</div>
+                  <span class="pv-live"><span class="dot"></span> Program Live · 4 members</span>
+                </div>
+                <div class="pv-stats">
+                  <div class="pv-stat"><div class="v" style="color:var(--orange)">1</div><div class="l">VISITS TODAY</div></div>
+                  <div class="pv-stat"><div class="v" style="color:#1f8f3a">4</div><div class="l">MEMBERS</div></div>
+                  <div class="pv-stat"><div class="v" style="color:var(--gold)">15</div><div class="l">REDEEMED</div></div>
+                </div>
+                <div class="pv-window">
+                  <span class="ico">🪟</span>
+                  <div><div class="t1">At the Window</div><div class="t2">Award points &amp; confirm rewards at checkout</div></div>
+                </div>
+                <div class="pv-tiles">
+                  <div class="pv-tile"><div class="e">🎁</div><div class="t">Rewards</div><div class="s">What customers earn</div></div>
+                  <div class="pv-tile"><div class="e">🎰</div><div class="t">Spin Prizes</div><div class="s">Bonus points on wheel</div></div>
+                  <div class="pv-tile"><div class="e">📣</div><div class="t">Notify</div><div class="s">Message your members</div></div>
+                  <div class="pv-tile"><div class="e">🎉</div><div class="t">Promos</div><div class="s">Flash deals &amp; codes</div></div>
+                </div>
+              </div>
             </div>
+
           </div>
         </div>
       </div>
@@ -262,13 +333,13 @@
     <div class="head">
       <div class="kicker">See it in action</div>
       <h2>Everything runs from your phone</h2>
-      <p>Your dashboard, customizable rewards, the spin wheel, and real analytics — a quick tour of the actual TruckLoyal app.</p>
+      <p>Your dashboard, customizable rewards, the spin wheel, and real analytics — a quick tour of the actual Food Truck Rewards app.</p>
     </div>
     <div class="demo-wrap">
       <img class="demo-gif" src="assets/demo.gif" width="300" height="673" loading="lazy"
-           alt="A tour of the TruckLoyal app: vendor dashboard, the rewards customers redeem, a customer winning bonus spin points, and the analytics screen.">
+           alt="A tour of the Food Truck Rewards app: vendor dashboard, the rewards customers redeem, a customer winning bonus spin points, and the analytics screen.">
     </div>
-    <p class="demo-note">Real screens from the TruckLoyal app.</p>
+    <p class="demo-note">Real screens from the Food Truck Rewards app.</p>
   </div>
 </section>
 
@@ -303,7 +374,7 @@
   <div class="inner" style="max-width:680px; text-align:center;">
     <span class="track-label customer">🌮 For food truck fans</span>
     <h2 style="font-size:clamp(26px,3.5vw,34px); margin-bottom:14px;">Earn free food at the trucks you already love</h2>
-    <p style="color:var(--muted); font-size:16px; font-weight:700; margin-bottom:22px;">TruckLoyal is completely free for customers. Add it to your home screen in a few taps — no app store required.</p>
+    <p style="color:var(--muted); font-size:16px; font-weight:700; margin-bottom:22px;">Food Truck Rewards is completely free for customers. Add it to your home screen in a few taps — no app store required.</p>
     <ul class="cust-perks" style="display:inline-block; text-align:left;">
       <li>Digital rewards card with your own QR code</li>
       <li>Earn points every single visit</li>
@@ -319,7 +390,7 @@
     <div class="head">
       <div class="kicker">Get started</div>
       <h2>Get the App</h2>
-      <p>Install TruckLoyal in seconds — straight from your phone's browser.</p>
+      <p>Install Food Truck Rewards in seconds — straight from your phone's browser.</p>
     </div>
     <div class="install-grid">
       <div class="install-card android">
@@ -354,7 +425,7 @@
 
 <footer>
   <div class="foot-grid">
-    <div class="foot-logo"><span style="background:#FF5722;width:30px;height:30px;border-radius:9px;display:inline-flex;align-items:center;justify-content:center;">🚚</span> TruckLoyal</div>
+    <div class="foot-logo"><span style="background:#FF5722;width:30px;height:30px;border-radius:9px;display:inline-flex;align-items:center;justify-content:center;">🚚</span> Food Truck Rewards</div>
     <div class="foot-links">
       <a href="https://truckloyal-api.onrender.com/app">Open App</a>
       <a href="#pricing">Pricing</a>
@@ -362,7 +433,7 @@
       <a href="mailto:support@truckloyal.app">Contact</a>
     </div>
   </div>
-  <div class="foot-copy">© <span id="year"></span> TruckLoyal. Loyalty rewards built for food trucks.</div>
+  <div class="foot-copy">© <span id="year"></span> Food Truck Rewards. Loyalty rewards built for food trucks.</div>
 </footer>
 
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
